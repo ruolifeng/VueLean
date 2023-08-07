@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <!-- 在控制台更改数据的时候可以吗更改页面的数据，但是反过来不行 -->
+    <h1>单项数据绑定：<input type="text" v-bind:value="name"></h1>
+    <!-- 页面上的数据发生变化也可以回头影响vue中的数据，但是不是所有的元都可以使用这个绑定 -->
+    <h1>双向数据绑定：<input type="text" v-model:value="name"></h1>
+    <!-- 下面的代码是错误的因为这绑定只用于表单类元素上，可以和用户产生交互，因为这样才有意义，处了表达类元素之外我们不可能人为的给vue提供数据，所以不能这样使用-->
+    <!-- v-model:value可以默认写成v-model，因为这个属性本身就是默认收集value值 -->
+    <h2 v-model:x="name">你好啊</h2>
+  </div>
+</body>
+<script>
+    Vue.config.profuctionTip = false
+    new Vue({
+      el:'#root',
+      dara:{
+        name:'单项数据'
+      }
+    })
+</script>
+</html>

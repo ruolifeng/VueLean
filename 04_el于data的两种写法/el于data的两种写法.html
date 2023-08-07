@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <h1>你好，{{name}}</h1>
+  </div>
+</body>
+<script>
+  const v = new Vue({
+    // 第一种写法
+    el:'#root',
+    // 第一种data的写法：对现式
+    // data: {
+    //   name: '若离风'
+    // }
+    // 第二种写法：函数式，学习到组件的时候必须使用函数式，目前可以使用两种方式
+    data:function(){
+      // 必须写成这样的形式，不能写成箭头函数，只要是vue所管理的函数都不能写成箭头函数
+      // 现在所只的是vue对象
+      console.log(this)
+      return{
+        name:"若离风"
+      }
+    }
+  })
+  setTimeout(() => {
+    // 第二种写法可以更好的控制容器的指定时机
+    // v.$mount('#root')
+  }, 10000);
+  console.log(new Vue);
+</script>
+
+</html>
