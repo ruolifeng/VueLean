@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+
+  </div>
+</body>
+<script>
+  let person = {
+
+  }
+  new Vue({
+    el: '#root',
+    data: {
+      
+    }
+  })
+  Object.defineProperty(person,'age',{
+    // 默认的属性是无法被修改的
+    value:18,
+    // 配置属性是否可以被枚举
+    configurable:true,
+    enumerable:true,
+    writable:true,
+    // 可以传输多个配置项
+    // 当数据发生变化的时候将不会自动的修改数据，我们需要的是配置发生改变的时候数据自动的发生变化
+    get:function(){
+      // 当游人读取person的时候就会自动获取age，每一次访问age都会触发getter的调用
+      return 'hello'
+    },
+    set:function(){
+      // 
+      return 'hello'
+    }
+  })
+  console.log(person);
+</script>
+
+</html>
