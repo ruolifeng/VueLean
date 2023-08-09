@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- 将事件进行修饰，阻止默认事件 -->
+    <!-- 阻止事件冒泡：例如当里面和外面都存在点击事件的时候点击内部事件之后外部事件也会执行，阻止事件冒泡行为：.stop就可以停止事件的冒泡行为了 -->
+    <!-- .once事件只触发一次 -->
+    <!-- capture：使用事件捕获行为 -->
+    <!-- self：只有event.target是当前操作的元素的时候才会触发事件 -->
+    <!-- passive：事件的默认行为立即执行，不需要等待事件回调执行完毕 -->
+    <a href="" @click.prevent=""></a>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      
+    },
+    methods:{
+      // 如何阻止默认事件，
+    }
+  })
+</script>
+
+</html>

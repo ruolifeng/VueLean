@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <h1>欢迎来到{{name}} 学习</h1>
+    <!-- 当点击的时候去找到这个函数进行调用 -->
+    <button v-on:click="showInfo">点我提示信息</button>
+    <!-- 在书写函数的时候也可以传递参数将参数写在小括号里面，但是会将event给弄没了，可以在后面写上一个，$event占一个位置就ok了，这个函数没有使用数据代理，因为没有必要做数据代理 -->
+    <!-- 可以简写成@ -->
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      name:'若离风'
+    },
+    methods:{
+      showInfo(event){
+        // 此处的this是vm，单也不一定是，如果我们使用箭头函数定义的时候就不是了
+        // 接收vue管理的函数不能写成箭头函数
+        alert("点我提示星系")
+      }
+    }
+  })
+  // vue不能直接使用外部函数
+</script> 
+
+</html>
