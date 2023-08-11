@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <ul>
+      <!-- 必须写上key作为唯一标识 ，如果不进行动态绑定的话将会发生错误，p还可以收到两个参数一个是索引值，另一个是值，收到多个东西可也可以不写上小括号，可以将in换成of
+      既可以遍历数组也可以遍历对象
+      也可以遍历字符串
+      遍历指定次数 of后面写成遍历的次数，第一个参数是从1开始的number，第二个参数是从0开始的数值
+      -->
+      <li v-for="p in person" :key="p.id">{{p.name+"-"+p.age}}</li>
+    </ul>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      person:[
+        // 每一个人都应该有一个唯一的属性
+        {id:'1001',name:'张三',age:18},
+        {id:'1001',name:'李四',age:18},
+        {id:'1001',name:'玩个',age:18},
+        {id:'1001',name:'说得',age:18},
+        {id:'1001',name:'单行',age:18},
+        {id:'1001',name:'上课',age:18},
+      ]
+    }
+  })
+</script>
+
+</html>

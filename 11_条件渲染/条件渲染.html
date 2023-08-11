@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- 条件渲染 ，也可以写成一个表达式，当表达式是true的时候就生效
+    底层实现是调整display的值
+    使用v-if做条件判断，这个连结构都不在了，相当于直接删除这个元素，当元素被修改的时候vue将会重新渲染
+    如果有很高的变化频率，那么推荐使用v-show，效率问题
+    v-else-if相当于上面的条件成立了就不会继续判断下面的条件，如果都是v-if都会判断
+    v-else：所有条件都不成立之后这个成立
+    -->
+    <h2 v-show="a">若离风</h2>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      // 也可以写在这
+      a:true
+    }
+  })
+</script>
+
+</html>

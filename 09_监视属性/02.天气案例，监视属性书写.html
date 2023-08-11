@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <h2>今天天气{{Info}}</h2>
+    <!-- 更简单的方式实现，但是不推荐这样写，因为无法写很复杂的语句，只适合写一些简单的语句 -->
+    <!-- 如果使用的是Windows的函数那么将无法使用，因为这里面会直接去vm里面查找函数 -->
+    <!-- <button @click="isHot = !isHot">切换天气</button> -->
+    <button @click="changeWeather">切换天气</button>
+  </div>
+</body>
+<script>
+  const vm  = new Vue({
+    el: '#root',
+    data: {
+      isHot: true
+      // 可以在这个里面写上Windows，就可以直接在vm中使用Windows中的函数了
+    },
+    computed: {
+      // 使用计算属性
+      Info() {
+        return this.isHot ? '炎热' : '凉爽'
+      }
+    },
+    methods: {
+      // // 使用方法的方式进行天气的切换
+      changeWeather() {
+        this.isHot = !this.isHot
+      }
+    },
+    // 监视属性
+    watch:{
+      // 计算属性也能被监视，只有存在的属性才能监视，但是不会报错
+      isHot:{
+        // 立即执行该函数
+        immediate:true,
+        // 当isHot发生改变的时候调用这个函数
+        handler(newValue,oldValue){
+          console.log("监视属性被执行")
+          console.log(newValue,oldValue);
+        }
+      }
+    },
+    // 还可以通过vm实现监视
+  })
+  vm.$watch('isHot',{
+    handler(){
+      console.log("监视属性被执行")
+    }
+  })
+</script>
+
+</html>

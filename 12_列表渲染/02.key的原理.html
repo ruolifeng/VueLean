@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <ul>
+      <!-- key相当于身份证号，key是vue内部的-->
+      <li v-for="p in person" :key="p.id">{{p.name+"-"+p.age}}</li>
+    </ul>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      person: [
+        // 每一个人都应该有一个唯一的key ，用于虚拟dom的对比
+        // 如果没有写key就将默认的索引值做为key，
+        { id: '1001', name: '张三', age: 18 },
+        { id: '1002', name: '李四', age: 18 },
+        { id: '1003', name: '玩个', age: 18 },
+        { id: '1004', name: '说得', age: 18 },
+        { id: '1005', name: '单行', age: 18 },
+        { id: '1006', name: '上课', age: 18 },
+      ]
+    }
+  })
+</script>
+
+</html>
