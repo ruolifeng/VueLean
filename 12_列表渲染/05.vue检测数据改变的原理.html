@@ -10,14 +10,17 @@
 
 <body>
   <div id="root">
-
+    <h2>学校地址:{{address}}</h2>
+    <h2>学校名字:{{name}}</h2>
   </div>
 </body>
 <script>
   new Vue({
     el: '#root',
+    // 加工数据-将下划线data的数据赋值给data
     data: {
-      
+      address:'若离风',
+      name:'rlf'
     }
   })
 </script>
