@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      // 使用vm.set给vm追加响应式的数据，如果直接加的话不行
+      // 但是这个只能给data中的某一个对象下面的值添加数据，不能直接在data数据对象上添加数据
+    }
+  })
+</script>
+
+</html>
